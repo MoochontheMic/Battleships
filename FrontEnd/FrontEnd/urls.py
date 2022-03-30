@@ -19,9 +19,16 @@ Including another URLconf
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
 # ]
+import sys
+import os
+
+#
+# sys.path.append(os.getcwd())
+
 from django.contrib import admin
 from django.urls import path
-from views import views
+from core import views
+
 
 
 urlpatterns = [
