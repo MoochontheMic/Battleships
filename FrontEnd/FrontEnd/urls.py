@@ -22,8 +22,6 @@ Including another URLconf
 import sys
 import os
 
-#
-# sys.path.append(os.getcwd())
 
 from django.contrib import admin
 from django.urls import path
