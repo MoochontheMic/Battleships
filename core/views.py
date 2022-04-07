@@ -7,7 +7,7 @@ from django.views import View
 import core.models
 
 board = core.models.Board()
-
+players = core.models.Players()
 class Index(View):
     template = 'index.html'
     def get(self, request):

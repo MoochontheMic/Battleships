@@ -2,7 +2,7 @@
 <html lang="en">
 </html>
 <head>
-    <title>Naughts and Crosses</title>
+    <title>Battleships</title>
     <style>
             .row div {
               padding: 10px;
@@ -37,18 +37,27 @@ table.center {
   margin-right: auto;
 }
 </style>
-<body>
-  <table class="center">
-    {% for 1d in board.array%}
+  <table class="center" style="width:200px; height:200px">
+    {% for 1d in board.playersBoard%}
       <tr>
       {% for cells in 1d%}
-        <td>{{cells.content}} </td>
+        <td>{{cells}} </td>
       {% endfor %}
       </tr>
      {% endfor %} 
 
   </table>
+<br>
+  <table class="center" style="width:200px; height:200px">
+    {% for 1d in board.guessBoard%}
+      <tr>
+      {% for cells in 1d%}
+        <td>{{cells}} </td>
+      {% endfor %}
+      </tr>
+     {% endfor %} 
 
+  </table>
 </body>
 
 
