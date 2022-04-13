@@ -38,7 +38,7 @@ table.center {
 }
 </style>
   <table class="center" style="width:200px; height:200px">
-    {% for 1d in board.playersBoard%}
+    {% for 1d in playerBoard.playersBoard%}
       <tr>
       {% for cells in 1d%}
         <td>{{cells}} </td>
@@ -49,7 +49,7 @@ table.center {
   </table>
 <br>
   <table class="center" style="width:200px; height:200px">
-    {% for 1d in board.guessBoard%}
+    {% for 1d in guessBoard.guessBoard%}
       <tr>
       {% for cells in 1d%}
         <td>{{cells}} </td>

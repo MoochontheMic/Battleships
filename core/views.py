@@ -6,9 +6,10 @@ from django.shortcuts import render
 from django.views import View
 import core.models
 
-board = core.models.Board()
+playerBoard = core.models.PlayerBoard()
+guessBoard = core.models.GuessBoard()
 players = core.models.Players()
 class Index(View):
     template = 'index.html'
     def get(self, request):
-        return render(request, self.template, {'board': board})
+        return render(request, self.template, {'playerBoard': playerBoard, 'guessBoard': guessBoard})

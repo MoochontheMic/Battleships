@@ -6,19 +6,25 @@ MAX_HEIGHT = 3
 MAX_WIDTH = 3
 MAX_PLAYERS = 2
 # Create your models here.
-class Board():
+class PlayerBoard():
     
     def __init__(self):
         """
-        initalises array of board
+        initalises array of players ship board
         """
         self.playersBoard = [[None for item in range(MAX_HEIGHT)] for other in range(MAX_WIDTH)]
-        self.guessBoard = [[None for item in range(MAX_HEIGHT)] for other in range(MAX_WIDTH)]
+        
          
         # def display(self):
         #     Index.get()
     
 
+class GuessBoard():
+    def __init__(self):
+        """
+        initialises array of the guess board
+        """
+        self.guessBoard = [[None for item in range(MAX_HEIGHT)] for other in range(MAX_WIDTH)]
 
 
 
@@ -30,6 +36,17 @@ class Game():
         """
         pass
 
+    def extractCoordinates(self, coordinate: str):
+        try:
+            # TODO: Update to account for not enough arguments
+            formattedCoordinate = coordinate.replace(' ', '').split(',')
+            x = int(formattedCoordinate[0])
+            y = int(formattedCoordinate[1])
+        except ValueError:
+            print('Coordinates must be integers')
+            self.extractCoordinates()
+
+        return [x-1, y-1]
     
     def positionShip(self, shipType:list, coords: list, orientation: bool):
         """
@@ -38,7 +55,7 @@ class Game():
         id = 1
         x = coords[0]
         y = coords[1]
-        board = Board()
+        board = PlayerBoard()
         if orientation :
             #Horizontal
             shipPlace = shipType[0]
@@ -63,6 +80,7 @@ class Submarine():
         """
         intialises submarine
         """
+        self.id = 1
         if horizontal:
             self.position = [[x,y],[x+1,y],[x+2,y]]
         else:
